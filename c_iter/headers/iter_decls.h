@@ -1,5 +1,5 @@
-#ifndef C_ITER_ITER_DECLS_H
-#define C_ITER_ITER_DECLS_H
+#ifndef CTI_ITER_DECLS_H
+#define CTI_ITER_DECLS_H
 
 #ifndef iter_type
 #define iter_type(STL) STL##_iter
@@ -73,4 +73,15 @@
   free(stlptr->iterator)
 #endif
 
-#endif // C_ITER_ITER_DECLS_H
+#ifndef free_rev_iterator
+#define free_rev_iterator(stlptr) \
+  free(stlptr->rev_iterator)
+#endif
+
+#ifndef free_iterators
+#define free_iterators(stlptr) \
+  free(stlptr->iterator); \
+  free(stlptr->rev_iterator)
+#endif
+
+#endif // CTI_ITER_DECLS_H

@@ -24,11 +24,15 @@ do { \
 #define forr_i(T, var, iterptr, stmts...) \
 do { \
   T var = (iterptr)->begin(iterptr); \
-  while ((iterptr)->current(iterptr) != (iterptr)->end(iterptr)) { \
+  do { \
     stmts \
     (iterptr)->next(iterptr); \
     var = (iterptr)->current(iterptr); \
-  } \
+    if ((iterptr)->current(iterptr) == (iterptr)->end(iterptr)) { \
+      stmts \
+      break; \
+    } \
+  } while (1); \
   (iterptr)->reset(iterptr); \
 } while(0)
 #endif
@@ -37,11 +41,15 @@ do { \
 #define forr(T, var, stlptr, stmts...) \
 do { \
   T var = (stlptr->iterator)->begin(stlptr->iterator); \
-  while ((stlptr->iterator)->current(stlptr->iterator) != (stlptr->iterator)->end(stlptr->iterator)) { \
+  do { \
     stmts \
     (stlptr->iterator)->next(stlptr->iterator); \
     var = (stlptr->iterator)->current(stlptr->iterator); \
-  } \
+    if ((stlptr->iterator)->current(stlptr->iterator) == (stlptr->iterator)->end(stlptr->iterator)) { \
+      stmts \
+      break; \
+    } \
+  } while (1); \
   (stlptr->iterator)->reset(stlptr->iterator); \
 } while(0)
 #endif

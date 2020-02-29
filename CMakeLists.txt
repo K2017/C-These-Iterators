@@ -4,8 +4,8 @@ project(C_These_Iterators C)
 set(CMAKE_C_STANDARD 99)
 
 add_library(c_stl
-  c_stl/containers/Array.c
-  c_stl/containers/headers/Array.h
+  c_stl/containers/String.c
+  c_stl/containers/headers/String.h
   c_stl/containers/Range.c
   c_stl/containers/headers/Range.h
   c_stl/STL.h

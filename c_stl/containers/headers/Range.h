@@ -1,5 +1,5 @@
-#ifndef C_ITER_RANGE_H
-#define C_ITER_RANGE_H
+#ifndef CTI_RANGE_H
+#define CTI_RANGE_H
 
 #include "../../STL_util.h"
 #include <c_iter/iter.h>
@@ -19,4 +19,4 @@ struct Range {
 
 stl_decl_new(Range, int a, int b);
 
-#endif // C_ITER_RANGE_H
+#endif // CTI_RANGE_H

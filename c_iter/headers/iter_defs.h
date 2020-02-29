@@ -1,5 +1,5 @@
-#ifndef C_ITER_ITER_DEFS_H
-#define C_ITER_ITER_DEFS_H
+#ifndef CTI_ITER_DEFS_H
+#define CTI_ITER_DEFS_H
 
 #ifndef iter_var
 #define iter_var
@@ -12,12 +12,12 @@
 
 #ifndef make_rev_iterable
 #define make_rev_iterable(STL, stlptr) \
-  stlptr->rev_iterator = make_iterator(stlptr); \
-  stlptr->rev_iterator->begin = end; \
-  stlptr->rev_iterator->end = begin; \
-  stlptr->rev_iterator->next = prev; \
-  stlptr->rev_iterator->prev = next; \
-  stlptr->rev_iterator->val = end(stlptr->rev_iterator)
+  stlptr->rev_iterator = make_rev_iterator(stlptr)
+#endif
+
+#ifndef override
+#define override(func, STL, T) \
+  static T func(iter_type(STL) *self)
 #endif
 
 #ifndef def_iterator
@@ -37,7 +37,20 @@
     iter->current = current; \
     iter->reset = reset; \
     return iter; \
+  } \
+  \
+  static iter_type(STL) *make_rev_iterator(STL *stl) { \
+    iter_type(STL) *iter = malloc(sizeof(iter_type(STL))); \
+    iter->stl = stl; \
+    iter->begin = end; \
+    iter->val = iter->begin(iter); \
+    iter->end = begin; \
+    iter->next = prev; \
+    iter->prev = next; \
+    iter->current = current; \
+    iter->reset = reset; \
+    return iter; \
   }
 #endif
 
-#endif // C_ITER_ITER_DEFS_H
+#endif // CTI_ITER_DEFS_H
