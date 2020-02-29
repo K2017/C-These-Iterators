@@ -33,6 +33,7 @@ do { \
 } while(0)
 #endif
 
+#ifndef forr
 #define forr(T, var, stlptr, stmts...) \
 do { \
   T var = (stlptr->iterator)->begin(stlptr->iterator); \
@@ -43,4 +44,6 @@ do { \
   } \
   (stlptr->iterator)->reset(stlptr->iterator); \
 } while(0)
+#endif
+
 #endif //C_ITER_ITER_FOR_H

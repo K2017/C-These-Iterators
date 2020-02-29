@@ -1,6 +1,6 @@
-#ifndef C_ITER_FOR_H
-#define C_ITER_FOR_H
+#ifndef CTI_FOR_H
+#define CTI_FOR_H
 
 #include "headers/iter_for.h"
 
-#endif // C_ITER_FOR_H
+#endif // CTI_FOR_H

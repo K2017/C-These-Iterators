@@ -11,5 +11,4 @@
   STL *new##STL(args)
 #endif
 
-
 #endif // C_ITER_UTIL_H
