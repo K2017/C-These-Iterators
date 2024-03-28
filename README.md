@@ -136,6 +136,3 @@ stl_def_new(IntArray, unsigned int size) {
   return iarray;
 }
 ```
-
-## Disclaimer
-This readme is incomplete, and this library is still under active development. Installation instructions will be added soon, but right now I would not recommend using this in production code until it has been fully tested.
